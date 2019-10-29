@@ -1,1 +1,234 @@
-정리
+python 기초강의
+
+★'{}'.format('문자열')
+>>> 'my name is {}'.format('star')
+=>my name is star
+
+>>> '{}*{}={}'.format(2,3,2*3)
+=>2*2=6
+
+>>> '{1}x{0}={2}'.format(2,3,2*3)
+=>3*2=6
+이때 {}안은 format안의 인덱스
+
+
+★맨뒤를 -1부터 인덱스 지정도 가능
+ 0  1  2  3  4  5
+ p  y  t  h  o  n
+-6 -5 -4 -3 -2 -1
+
+
+★slicing
+>>> abc='ABC'
+>>> abc[0:2]
+=>'AB'
+0부터 2전까지. 여기선 0,1번째 원소
+
+
+★split
+>>> abc='AB C'
+>>> abc.split()
+=>['AB','C']
+공백을 기준으로 원소를 나눠줌
+string에서만 쓸 수 있음
+
+
+★end
+>>> print('밀크티',end='')
+=>'밀크티'
+이 때 뒤에 엔터대신 아무것도 들어가지 않음
+
+>>> print('밀크티',end='/')
+=>'밀크티/'
+
+
+★append
+>>> my_list=['간식은']
+>>> my_list.append('찹쌀떡')
+>>> print(my_list)
+=>['간식은, '찹쌀떡']
+리스트 마지막 원소 뒤로 들어감
+
+
+★list.sort()
+
+
+★len(문자열)
+>>> my_str='밀크티'
+>>> len(my_str)
+=>3
+
+
+★tuple
+리스트랑 비슷하지만 값을 변경할 수 없다
+list는 []
+tuple은 ()
+>>> my_l=[1,2]
+>>> my_t=(1,2)
+>>> my_l[0]=3
+>>> print(my_l)
+=> [3, 2]
+>>> my_t[0]=[3]
+※TypeError: 'tuple' object does not support item assignment
+
+
+★언패킹,패킹
+>>> num1=1
+>>> num2=2
+>>> num1,num2=(num2,num1) 
+       언패킹<--->패킹
+>>> print(num1,num2)
+=> 2 1
+
+
+★for 변수 in 컨테이너:
+	실행명령1
+	실행명령2
+		↑코드블럭 
+
+>>> for num in [1,2,3]:
+		print(num)
+=> 1
+2
+3
+
+★range(a,b)
+a부터 b전까지
+>>> for n in range(0,3) :
+		print(n)
+=> 0
+1
+2
+
+
+★컴프리헨션
+>>> numbers=[1,2,3,4,5,6,7,8,9]
+>>> odd_numbers=[]
+>>> for number in numbers :
+		if number % 2 == 1 :
+			odd_numbers.append(number)
+>>> for n in odd_numbers:
+		print(n)
+=>1
+3
+5
+7
+9
+
+>>> odd_numbers2 = [number for number in numbers if number % 2 == 1]
+=>1
+3
+5
+7
+9
+
+리스트=[인자 for~이하같음]
+
+
+★문자열
+>>> 'A'+'B'+'C'
+=> ABC
+>>> '안녕'*3
+=> 안녕안녕안녕
+
+
+★membership
+>>> my_list=['A','B','C']
+>>> 'A' in my_list
+=> True
+>>> 'D' in my_list
+=> False
+멤버인지 확인할 수 있다
+
+
+★if 변수 in 컨테이너:
+	실행명령1
+	실행명령2
+       ↑코드블럭 
+
+>>>name = '밀크티'
+>>>if name == '밀크티' :
+		print("맞아",name)
+=>맞아 밀크티
+
+
+if 조건:
+else :
+
+if 조건:
+elif 조건:
+
+if 조건
+elif 조건:
+else :
+
+
+★while 조건 :
+	실행명령1
+	실행명령2
+       ↑코드블럭 
+
+
+★딕셔너리 {key,val}
+>>> my_dict = {}
+>>> type(my_dict) #자료형(type) 알 수 있는 함수
+=> <class 'dict'>
+
+>>> my_dict[0]='a'
+>>> my_dict['b']=2
+>>> print(my_dict)
+=>{0:'a','b':2}
+
+>>>print(my_dict['b'])
+=>2
+
+>>> del my_dict[0]
+>>> print(my_dict)
+=> {'b': 2}
+
+>>> my_dict['c']='c'
+>>> for std in my_dict.values(): #value만 뽑아오겠다
+		print(std)
+=>2
+c
+
+>>> for std in my_dict.keys(): #key만 뽑아오겠다
+		print(std)
+=>b
+c
+
+>>>for key,val in my_dict.items(): #item 뽑아오겠다
+		print(key,val)
+=>b 2
+c c
+
+
+★function
+def 함수이름(인자):
+	실행명령1
+	실행명령2
+    
+    return 결과
+
+>>> def add(num1,num2) :
+		return num1+num2
+>>> add(1,2)
+=> 3
+
+>>> def add2(num1,num2) :
+		return num1+num2, num1*num2
+>>> add2(1,2)
+=> (3,2) #튜플로 패킹되어 반환됨
+
+
+★random #난수뽑기
+>>> import random #랜덤이라는 모듈을 가져옴
+>>> milktea=['m','i','l','k','t','e','a']
+>>> print(random.choice(milktea))
+=>t #무작위로 하나의 원소가 나옴
+
+>>> random.sample(milktea,2) #choice랑 달리 여러개 뽑을 수 있음
+=>['i','k']
+
+>>> random.randint(8,10) #괄호안의 구간에서 정수중 하나 출력(8부터 10까지)
+=>8
