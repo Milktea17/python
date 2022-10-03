@@ -56,7 +56,7 @@ print(head[:]) #Python
 print(head[:-1]) #Pytho
 print("="*40)
 
-#문자열 슬레이싱으로 바꾸기
+#문자열 슬라이싱으로 바꾸기
 pithon = "pithon"
 print(pithon[0]+'y'+pithon[2:])
 print("="*40)
@@ -82,5 +82,78 @@ print("I eat {0} apples".format(number))
 print("I eat {0} apples. so I was sick for {1} days.".format(number,day))
 print("I eat {number} apples. so I was sick for {day} days.".format(number=10,day=3))
 print("I eat {0} apples. so I was sick for {day} days.".format(10,day=3))
+
+#위에서 0자리에 format넣는거랑 같은형식 (0(변수):<10)
+print("{0:<10}".format("hi")) #'hi          '
+print("{0:>10}".format("hi")) #'          hi'
+print("{0:^10}".format("hi")) #'     hi     ' 가운데정렬
+print("{0:=^10}".format("hi")) #====hi====
+print("{0:!<10}".format("hi")) #hi!!!!!!!!
+
+y = 3.42134234
+print("{0:0.4f}".format(y)) #3.4213
+
+print("{{ and }}".format())
 print("="*40)
 
+#f 문자열 포매팅
+
+name = '홍길동'
+age = 30
+print(f'나의 이름은 {name}입니다. 나이는 {age}입니다')
+print(f'나는 내년이면 {age+1}살이 된다.')
+
+d={'name':'홍길동', 'age':30}
+print(f'나의 이름은 {d["name"]}입니다. 나이는 {d["age"]}입니다.')
+
+print(f'{"hi":<10}')
+print(f'{"hi":>10}')
+print(f'{"hi":!<10}')
+print("="*40)
+
+#문자 개수 세기(문자열에서 해당 문자 개수 세기)
+a="hobby"
+print(a.count('b')) #2
+
+#위치 알려주기1(find)
+a="Python is the best choice"
+print(a.find("b")) #14 처음으로 나온 위치 반환(0~)
+print(a.find("k")) #-1 (없을경우에는 -1리턴)
+
+#위치 알려주기2(index)
+print(a.index("b")) #14 처음으로 나온 위치 반환(0~)
+#print(a.index("k")) #find와 달리 없을 경우에는 error발생
+print("="*40)
+
+#문자열 삽입(join)
+print(",".join('abcd')) #a,b,c,d 각 문자 사이에 ,가 삽입됨. 
+
+#소문자를 대문자로(upper)
+a='hi'
+print(a.upper())
+
+#대문자를 소문자로(lower)
+a="HI"
+print(a.lower())
+print("="*40)
+
+#왼쪽 공백 지우기(lstrip)
+a=" hi "
+print(a.lstrip()) #'hi '
+
+#오른쪽 공백 지우기(rstrip)
+print(a.rstrip()) #' hi'
+
+#양쪽 공백 지우기(strip)
+print(a.strip()) #'hi'
+print("="*40)
+
+#문자열 바꾸기(replace)
+a="Life is too short"
+print(a.replace("Life", "Your leg")) #Your leg is too short
+
+#문자열 나누기(split)
+print(a.split()) #['Life', 'is', 'too', 'short'] 괄호를 비울 시, 공백(스페이스, 탭, 엔터 등)을 기준
+
+b="a:b:c:d"
+print(b.split(":")) #['a', 'b', 'c', 'd']
