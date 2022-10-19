@@ -1,5 +1,5 @@
 #for 변수 in [리스트,튜플,문자열] : 형태
-'''
+
 #i에 요소들이 차례로 대입되면서, print하면 출력된다.
 test_list = ['one', 'two', 'three']
 for i in test_list :
@@ -117,7 +117,7 @@ result = [num * 3 for num in a if num % 2 == 0]
 print(result)
 #[6,12]
 #[표현식 for 항목 in 반복가능객체 if 조건문]
-'''
+
 
 #구구단을 리스트 내포를 사용하여 구현
 result = [x*y for x in range(2,10) for y in range(1,10)]
