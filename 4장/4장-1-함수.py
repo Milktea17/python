@@ -80,3 +80,50 @@ print(result)
 #120
 print("="*40)
 #=============================================
+
+# 키워드 파라미터
+def print_kwargs(**kwargs):
+    print(kwargs)
+    
+print_kwargs(a=1)
+#{'a': 1} //딕셔너리로 만들어진다
+
+print("="*40)
+#=============================================
+
+#함수의 결괏값은 언제나 하나이다.
+def add_and_mul(a,b):
+    return a+b,a*b
+
+result=add_and_mul(3,4)
+print(result)
+#(7, 12)
+#에러가 아닌 튜플값 하나인 (a+b,a*b)로 리턴한다.
+
+#2개의 결괏값으로 받고싶을 때
+result1,result2=add_and_mul(3,4)
+print("result1: %d"%result1)
+print("result2: %d"%result2)
+
+print("="*40)
+#=============================================
+
+#함수 안에서 함수 밖의 변수를 변경하는 방법
+a=1
+def vartest():
+    global a
+    a=a+1
+    
+vartest()
+print(a)
+#2 global명령어로 외부변수를 건든다. 하지만 권장하지 않아 return으로 이용할 것.
+
+print("="*40)
+#=============================================
+
+#lambda 람다
+#def와 동일한 역할을 하는데 한줄로 간결하게 만들 때 사용
+add = lambda a,b:a+b
+result = add(3,4)
+print(result)
+#7
